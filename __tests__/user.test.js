@@ -77,4 +77,24 @@ describe('app routes', () => {
         status: 401
       }));
   });
+
+  it('can verify if a user is logged in', async() => {
+    const user = await User.create({ email: 'verified@here.com', password: 'garbage' });
+
+    const agent = request.agent(app);
+
+    await agent
+      .post('/api/v1/auth/login')
+      .send({ email: 'verified@here.com', password: 'garbage' });
+
+    return agent
+      .get('/api/v1/auth/verify')
+      .then(res => {
+        expect(res.body).toEqual({
+          _id: user.id,
+          email: 'verified@here.com',
+          __v: 0
+        });
+      });
+  });
 });
