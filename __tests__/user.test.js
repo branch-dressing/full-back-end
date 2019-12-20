@@ -23,6 +23,7 @@ describe('app routes', () => {
       .post('/api/v1/auth/signup')
       .send({ email: 'joel@joel.com', password: '1234' })
       .then(res => {
+        expect(res.header['set-cookie'][0]).toEqual(expect.stringContaining('seeion='));
         expect(res.body).toEqual({
           _id: expect.any(String),
           email: 'joel@joel.com',
