@@ -53,4 +53,28 @@ describe('app routes', () => {
         });
       });
   });
+
+  it('throws an error is login with wrong email', async() => {
+    await User.create({ email: '123@456.com', password: 'abc' });
+
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({ email: '654@321.moc', password: 'abc' })
+      .then(res => expect(res.body).toEqual({
+        message: 'Invalid Email/Password',
+        status: 401
+      }));
+  });
+
+  it('throws an error is login with wrong password', async() => {
+    await User.create({ email: '123@456.com', password: 'abc' });
+
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({ email: '123@456.com', password: 'cba' })
+      .then(res => expect(res.body).toEqual({
+        message: 'Invalid Email/Password',
+        status: 401
+      }));
+  });
 });
