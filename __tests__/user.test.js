@@ -20,7 +20,7 @@ describe('app routes', () => {
 
   it('can create a user with a path', async() => {
     return request(app)
-      .post('api/vi/auth/signup')
+      .post('/api/v1/auth/signup')
       .send({ email: 'joel@joel.com', password: '1234' })
       .then(res => {
         expect(res.body).toEqual({
