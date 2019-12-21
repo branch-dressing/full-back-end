@@ -30,6 +30,20 @@ describe('app routes', () => {
     return mongoose.connection.close();
   });
 
+  it('should not create a book unless logged in', async() => {
+    return request(app)
+      .post('/api/v1/books')
+      .send({
+        title: 'The Test',
+        author: 'Joel Patrick Durham',
+        pages: 5,
+        publicationYear: 2019
+      })
+      .then(res => {
+        expect(res.body).toEqual('an error msg');
+      });
+  });
+
   it('can create a book', async() => {
     return request(app)
       .post('/api/v1/books')
