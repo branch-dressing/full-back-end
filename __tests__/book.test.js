@@ -15,8 +15,10 @@ describe('app routes', () => {
     return mongoose.connection.dropDatabase();
   });
 
+  let book;
+
   beforeEach(async() => {
-    await Book.create({
+    book = await Book.create({
       title: 'The Test: Before Each',
       author: 'Joel Patrick Durham',
       pages: 5,
@@ -63,6 +65,22 @@ describe('app routes', () => {
           shelves: [],
           __v: 0
         }]);
+      });
+  });
+
+  it('can grab a single book', async() => {
+    return request(app)
+      .get(`/api/v1/books/${book._id}`)
+      .then(res => {
+        expect(res.body).toEqual({
+          _id: expect.any(String),
+          title: 'The Test: Before Each',
+          author: 'Joel Patrick Durham',
+          pages: 5,
+          publicationYear: 2019,
+          shelves: [],
+          __v: 0
+        });
       });
   });
 });
