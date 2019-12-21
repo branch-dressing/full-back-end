@@ -1,7 +1,7 @@
-import Component from '../component.js';
-import Header from '../common/header.js';
+import Component from '../Component.js';
+import Header from '../common/Header.js';
 import Signup from './Signup.js';
-import Login from './Login.js';
+//import Login from './Login.js';
 
 class App extends Component {
   onRender(el) {
@@ -12,8 +12,8 @@ class App extends Component {
     const signup = new Signup();
     el.appendChild(signup.renderDOM());
 
-    const login = new Login();
-    el.appendChild(login.renderDOM());
+    // const login = new Login();
+    // el.appendChild(login.renderDOM());
   }
 
   renderHTML() {
