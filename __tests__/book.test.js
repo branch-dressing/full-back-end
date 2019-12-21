@@ -40,7 +40,10 @@ describe('app routes', () => {
         publicationYear: 2019
       })
       .then(res => {
-        expect(res.body).toEqual('an error msg');
+        expect(res.body).toEqual({
+          message: 'jwt must be provided', 
+          status: 500
+        });
       });
   });
 
