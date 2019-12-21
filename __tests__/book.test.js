@@ -109,7 +109,7 @@ describe('app routes', () => {
           _id: expect.any(String),
           title: 'The Test: Before Each',
           author: 'Joel Patrick Durham',
-          pages: 100,
+          pages: 5,
           publicationYear: 2019,
           shelves: [],
           __v: 0
