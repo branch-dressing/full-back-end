@@ -49,7 +49,7 @@ describe('app routes', () => {
   });
 
   it('can create a book if logged in', async() => {
-    const user = await User.create({ email: 'verified@here.com', password: 'garbage' });
+    await User.create({ email: 'verified@here.com', password: 'garbage' });
 
     const agent = request.agent(app);
 
@@ -111,7 +111,15 @@ describe('app routes', () => {
   });
 
   it('can update a book', async() => {
-    return request(app)
+    await User.create({ email: 'verified@here.com', password: 'garbage' });
+
+    const agent = request.agent(app);
+
+    await agent
+      .post('/api/v1/auth/login')
+      .send({ email: 'verified@here.com', password: 'garbage' });
+
+    return agent
       .patch(`/api/v1/books/${book._id}`)
       .send({ pages: 100 })
       .then(res => {
@@ -127,8 +135,16 @@ describe('app routes', () => {
       });
   });
 
-  it('can delete a book', () => {
-    return request(app)
+  it('can delete a book', async() => {
+    await User.create({ email: 'verified@here.com', password: 'garbage' });
+
+    const agent = request.agent(app);
+
+    await agent
+      .post('/api/v1/auth/login')
+      .send({ email: 'verified@here.com', password: 'garbage' });
+
+    return agent
       .del(`/api/v1/books/${book._id}`)
       .then(res => {
         expect(res.body).toEqual({
