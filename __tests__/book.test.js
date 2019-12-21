@@ -5,6 +5,7 @@ const app = require('../lib/app');
 const connect = require('../lib/utils/connect');
 const mongoose = require('mongoose');
 const Book = require('../lib/models/Book');
+const User = require('../lib/models/User');
 
 describe('app routes', () => {
   beforeAll(() => {
@@ -47,8 +48,16 @@ describe('app routes', () => {
       });
   });
 
-  it('can create a book', async() => {
-    return request(app)
+  it('can create a book if logged in', async() => {
+    const user = await User.create({ email: 'verified@here.com', password: 'garbage' });
+
+    const agent = request.agent(app);
+
+    await agent
+      .post('/api/v1/auth/login')
+      .send({ email: 'verified@here.com', password: 'garbage' });
+
+    return agent
       .post('/api/v1/books')
       .send({
         title: 'The Test',
