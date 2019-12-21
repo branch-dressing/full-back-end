@@ -100,4 +100,20 @@ describe('app routes', () => {
         });
       });
   });
+
+  it('can delete a book', () => {
+    return request(app)
+      .del(`/api/v1/books/${book._id}`)
+      .then(res => {
+        expect(res.body).toEqual({
+          _id: expect.any(String),
+          title: 'The Test: Before Each',
+          author: 'Joel Patrick Durham',
+          pages: 100,
+          publicationYear: 2019,
+          shelves: [],
+          __v: 0
+        });
+      });
+  });
 });
