@@ -35,6 +35,7 @@ describe('app routes', () => {
           author: 'Joel Patrick Durham',
           pages: 5,
           publicationYear: 2019,
+          shelves: [],
           __v: 0
         });
       });
