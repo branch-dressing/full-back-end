@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 
-class Signup extends Component {
+class Login extends Component {
   onRender(form) {
     form.addEventListener('submit', event => {
       event.preventDefault();
@@ -11,7 +11,7 @@ class Signup extends Component {
         password: formData.get('password')
       };
 
-      fetch('/api/v1/auth/signup', {
+      fetch('/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -27,24 +27,20 @@ class Signup extends Component {
           }
         });
     });
-
   }
 
   renderHTML() {
     return /*html*/`
-      <div>
-        <form>
-          <fieldset>
-            <legend>Signup</legend>
-            <input name="email" type="text" placeholder="email">
-            <input name="password" type="password" placeholder="password">
-          </fieldset>
-          <button>Signup</button>
-        </form>
-      </div>
+      <form>
+        <fieldset>
+          <legend>Login</legend>
+          <input name="email" type="text" placeholder="email">
+          <input name="password" type="password" placeholder="password">
+        </fieldset>
+        <button>Login</button>
+      </form>
     `;
   }
-
 }
 
-export default Signup;
+export default Login;
