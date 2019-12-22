@@ -5,8 +5,6 @@ class Signup extends Component {
     form.addEventListener('submit', event => {
       event.preventDefault();
 
-      console.log('Event Listener Working');
-
       const formData = new FormData(event.target);
       const user = {
         email: formData.get('email'),
@@ -20,10 +18,10 @@ class Signup extends Component {
         },
         body: JSON.stringify(user)
       })
-        .then(res => res.json());
-        // .then(() => {
-        //   window.location.reload();
-        // });
+        .then(res => res.json())
+        .then(() => {
+          window.location.href = '../my-shelves.html';
+        });
     });
   }
 
