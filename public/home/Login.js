@@ -23,7 +23,10 @@ class Login extends Component {
           if(user._id) {
             window.location.href = '../my-shelves.html';
           } else {
-            console.log('Error');
+            const error = document.createElement('div');
+            error.innerHTML = '<p>Wrongs creds of user does not exist<p>';
+            form.appendChild(error);
+            if(form.children.length > 2) form.removeChild(form.lastChild);
           }
         });
     });
@@ -31,14 +34,16 @@ class Login extends Component {
 
   renderHTML() {
     return /*html*/`
-      <form>
-        <fieldset>
-          <legend>Login</legend>
-          <input name="email" type="text" placeholder="email">
-          <input name="password" type="password" placeholder="password">
-        </fieldset>
-        <button>Login</button>
-      </form>
+      <div>
+        <form>
+          <fieldset>
+            <legend>Login</legend>
+            <input name="email" type="text" placeholder="email">
+            <input name="password" type="password" placeholder="password">
+          </fieldset>
+          <button>Login</button>
+        </form>
+      </div>
     `;
   }
 }

@@ -23,7 +23,10 @@ class Signup extends Component {
           if(user._id) {
             window.location.href = '../my-shelves.html';
           } else {
-            console.log('Error');
+            const error = document.createElement('div');
+            error.innerHTML = '<p>User or Password invalid<p>';
+            form.appendChild(error);
+            if(form.children.length > 2) form.removeChild(form.lastChild);
           }
         });
     });
