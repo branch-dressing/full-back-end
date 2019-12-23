@@ -5,6 +5,13 @@ import Login from './Login.js';
 
 class App extends Component {
   onRender(el) {
+    fetch('/api/v1/auth/verify', {
+      credentials: 'include'
+    })
+      .then(res => res.json())
+      .then(user => {
+        if(user._id) window.location.href = '/my-shelves.html';
+      });
 
     const header = new Header();
     el.prepend(header.renderDOM());
@@ -19,8 +26,8 @@ class App extends Component {
 
   renderHTML() {
     return /*html*/`
-            <div>
-            <div>`;
+      <div>
+      </div>`;
   }
 }
 
