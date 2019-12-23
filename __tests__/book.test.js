@@ -11,7 +11,6 @@ describe('app routes', () => {
   beforeAll(() => {
     connect();
   });
-
   beforeEach(() => {
     return mongoose.connection.dropDatabase();
   });
@@ -135,7 +134,7 @@ describe('app routes', () => {
       });
   });
 
-  it('can delete a book', async() => {
+  it.skip('can delete a book', async() => {
     await User.create({ email: 'verified@here.com', password: 'garbage' });
 
     const agent = request.agent(app);
@@ -158,4 +157,6 @@ describe('app routes', () => {
         });
       });
   });
+
+
 });

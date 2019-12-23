@@ -3,9 +3,13 @@ import BookItem from './BookItem.js';
 
 class BookList extends Component {
   onRender(el) {
-    //need to pull in books. But limit the number then for each
-    BookList.forEach(book => {
-      const bookItem = new BookItem();
+    const bookList = this.props.books;
+
+    console.log(bookList);
+
+    bookList.forEach(book => {
+      const props = { book };
+      const bookItem = new BookItem(props);
       el.appendChild(bookItem.renderDOM());
     });
   }

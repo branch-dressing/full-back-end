@@ -1,9 +1,6 @@
 import Component from '../Component.js';
 
 class ControlPanel extends Component {
-  onRender() {
-  }
-
   renderHTML() {
     return /*html*/`
       <div>
