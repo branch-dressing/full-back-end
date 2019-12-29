@@ -24,7 +24,7 @@ class Modal extends Component {
         .then(res => res.json())
         .then(book => {
           if(book._id) {
-            console.log('Book created');
+            window.location.href = '/my-shelves.html';
           } else {
             console.log('Book NOT created');
           }
