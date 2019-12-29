@@ -134,7 +134,7 @@ describe('app routes', () => {
       });
   });
 
-  it.skip('can delete a book', async() => {
+  it('can delete a book', async() => {
     await User.create({ email: 'verified@here.com', password: 'garbage' });
 
     const agent = request.agent(app);
