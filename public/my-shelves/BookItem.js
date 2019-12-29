@@ -6,7 +6,8 @@ class BookItem extends Component {
 
     return /*html*/`
       <div>
-        <h1>${book.title}</h1>
+        <p>${book.title}</p>
+        <p>by ${book.author}</p>
       <div>
       `;
   }

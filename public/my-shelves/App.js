@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 import Header from '../common/Header.js';
-// import ControlPanel from './ContolPanel';
+import ControlPanel from './ContolPanel.js';
 import BookList from './BookList.js';
 import verifyLogin from '../utils/verify.js';
 
@@ -11,8 +11,8 @@ class App extends Component {
     const header = new Header();
     el.prepend(header.renderDOM());
     
-    // const controlPanel = new ControlPanel();
-    // el.prepend(controlPanel.renderDOM());
+    const controlPanel = new ControlPanel();
+    el.appendChild(controlPanel.renderDOM());
 
     const bookList = new BookList({ books: [] });
     el.appendChild(bookList.renderDOM());
@@ -26,7 +26,6 @@ class App extends Component {
           count: 0
         };
       }
-      //const count = data.count;
       bookList.update({ books: data });
     }
 

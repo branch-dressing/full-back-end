@@ -5,8 +5,6 @@ class BookList extends Component {
   onRender(el) {
     const bookList = this.props.books;
 
-    console.log(bookList);
-
     bookList.forEach(book => {
       const props = { book };
       const bookItem = new BookItem(props);

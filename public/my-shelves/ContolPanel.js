@@ -1,19 +1,17 @@
 import Component from '../Component.js';
+import AddBook from './AddBook.js';
 
 class ControlPanel extends Component {
+  onRender(el) {
+    const addBook = new AddBook();
+    el.prepend(addBook.renderDOM());
+  }
+
   renderHTML() {
     return /*html*/`
-      <div>
-        <div>
-          <p>Add Book</p>
-        </div>
-        <div>
-          <p>Search</p>
-        </div>
-        <div>
-          <p>Other</p>
-        </div>
-      </div>`;
+      <div id="control-panel">
+      </div>
+    `;
   }
 
 }
