@@ -34,14 +34,14 @@ class Login extends Component {
 
   renderHTML() {
     return /*html*/`
-      <div>
+      <div id="main">
         <form>
           <fieldset>
             <legend>Login</legend>
             <input name="email" type="text" placeholder="email">
             <input name="password" type="password" placeholder="password">
-          </fieldset>
-          <button>Login</button>
+            </fieldset>
+            <button>Login</button>
         </form>
       </div>
     `;

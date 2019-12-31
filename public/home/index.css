@@ -1,0 +1,21 @@
+body {
+  background-color: #021b02;
+  font-family: 'Yanone Kaffeesatz';
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#main {
+}
+
+form {
+  min-width: 400px;
+  min-height: 200px;
+}
+
+fieldset {
+  width: 75%;
+  border: solid 3px white;
+}
+

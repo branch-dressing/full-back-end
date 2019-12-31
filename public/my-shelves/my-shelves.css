@@ -1,16 +1,41 @@
+body {
+  background-color: #021b02;
+  font-family: 'Yanone Kaffeesatz';
+  color: white;
+  display: flex;
+
+}
 .modal {
+  background-color: black;
   z-index: 5;
-  border: solid 2px black;
+  border: solid 2px white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 1rem 1.5rem;
   width: 24rem;
   text-align: center;
 }
 
-h1 {
-  color: red;
+#add-book img {
+  width: 75px;
+}
+
+.single-book {
+  transform: rotate(90deg);
+  border: solid 1px black;
+  border-radius: 3px;
+  background-color: brown;
+  padding: 0;
+  display: inline-grid;
+  margin: 0;
+  width: 100px;
+  height: 20px;
+}
+
+.title {
+  padding: 5px;
+  margin: 0;
 }
