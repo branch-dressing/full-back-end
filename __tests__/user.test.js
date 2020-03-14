@@ -4,6 +4,7 @@ const app = require('../lib/app');
 const connect = require('../lib/utils/connect');
 const mongoose = require('mongoose');
 const User = require('../lib/models/User');
+
 describe('app routes', () => {
   beforeAll(() => {
     connect();
