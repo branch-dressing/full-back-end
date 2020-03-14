@@ -16,7 +16,6 @@ class App extends Component {
     const header = new Header();
     el.prepend(header.renderDOM());
 
-    //Would love for these options to be toggled:
     const signup = new Signup();
     el.appendChild(signup.renderDOM());
 

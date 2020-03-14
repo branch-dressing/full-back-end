@@ -11,7 +11,7 @@ class AddBook extends Component {
   renderHTML() {
     return /*html*/`
     <div id="add-book">
-      <p>➕</p>
+      <img src="./assets/add-book.png">
     </div>
     `;
   }
